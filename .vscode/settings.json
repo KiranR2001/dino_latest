@@ -1,0 +1,5 @@
+{
+    "license.year": "auto",
+    "license.author": "Shubham Kamble",
+    "cmake.sourceDirectory": "${workspaceFolder}/windows"
+}
