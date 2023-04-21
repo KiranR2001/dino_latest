@@ -53,25 +53,16 @@ class _PoseDetectorViewState extends State<PoseDetectorView> {
 
     for (Pose pose in poses) {
       final landmark = pose.landmarks[PoseLandmarkType.leftEye];
-      final leftEyeY = landmark?.y;
+      final leftEyeY = landmark?.x;
 
       print(leftEyeY);
 
       if (leftEyeY != null) {
-        if (leftEyeY > 1000) {
-          changer.btnPressed = changer.selectedOpt;
-          changer.notify();
-        } else if (leftEyeY < 300) {
-          changer.selectedOpt = 0;
-          changer.notify();
-        } else if (leftEyeY < 400) {
+        if (leftEyeY > 300) {
           changer.selectedOpt = 1;
           changer.notify();
-        } else if (leftEyeY < 500) {
-          changer.selectedOpt = 2;
-          changer.notify();
-        } else if (leftEyeY < 600) {
-          changer.selectedOpt = 3;
+        } else {
+          changer.selectedOpt = 0;
           changer.notify();
         }
       }

@@ -1,3 +1,4 @@
+import 'package:dino_run/main.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:hive/hive.dart';
@@ -119,6 +120,13 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection {
       AudioManager.instance.pauseBgm();
     }
     super.update(dt);
+
+    if (changer.selectedOpt == 1) {
+      if (overlays.isActive(Hud.id)) {
+        _dino.jump();
+        print("working");
+      }
+    }
   }
 
   // This will get called for each tap on the screen.
