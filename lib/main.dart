@@ -14,6 +14,11 @@ import 'widgets/pause_menu.dart';
 import 'widgets/settings_menu.dart';
 import 'widgets/game_over_menu.dart';
 
+import 'package:camera/camera.dart';
+
+List<CameraDescription> cameras = [];
+final Changer changer = Changer();
+
 /// This is the single instance of [DinoRun] which
 /// will be reused throughout the lifecycle of the game.
 DinoRun _dinoRun = DinoRun();
@@ -27,6 +32,7 @@ Future<void> main() async {
   // Makes the game full screen and landscape only.
   Flame.device.fullScreen();
   Flame.device.setLandscape();
+  cameras = await availableCameras();
 
   // Initializes hive and register the adapters.
   await initHive();
@@ -91,5 +97,14 @@ class DinoRunApp extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class Changer extends ChangeNotifier {
+  int btnPressed = -1;
+  int selectedOpt = 0;
+
+  void notify() {
+    notifyListeners();
   }
 }
