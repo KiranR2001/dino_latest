@@ -16,7 +16,7 @@ import '/widgets/pause_menu.dart';
 import '/widgets/game_over_menu.dart';
 
 // This is the main flame game class.
-class DinoRun extends FlameGame with TapDetector, HasCollisionDetection {
+class DinoRun extends FlameGame with HasCollisionDetection {
   // List of all the image assets.
   static const _imageAssets = [
     'DinoSprites - tard.png',
@@ -124,13 +124,13 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection {
     if (changer.selectedOpt == 1) {
       if (overlays.isActive(Hud.id)) {
         _dino.jump();
-        print("working");
+        // print("working");
       }
     }
   }
 
   // This will get called for each tap on the screen.
-  @override
+  /* @override
   void onTapDown(TapDownInfo info) {
     // Make dino jump only when game is playing.
     // When game is in playing state, only Hud will be the active overlay.
@@ -138,7 +138,7 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection {
       _dino.jump();
     }
     super.onTapDown(info);
-  }
+  }*/
 
   /// This method reads [PlayerData] from the hive box.
   Future<PlayerData> _readPlayerData() async {
